@@ -7,7 +7,7 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderD
 import "./tailwind.css";
 import "remix-development-tools/index.css";
 import { themeSessionResolver } from "./sessions.server";
-
+import { Toaster } from "./components/ui/toaster";
 // Return the theme from the session storage using the loader
 export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request);
@@ -44,6 +44,7 @@ function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
+        <Toaster />
         <LiveReload />
       </body>
     </html>

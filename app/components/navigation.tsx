@@ -20,7 +20,7 @@ const baseNavigation = [
 export default function Navbar() {
   return (
     <>
-      <NavigationMenu className="mx-auto min-w-full">
+      <NavigationMenu className="mx-auto my-6 min-w-full">
         <NavigationMenuList>
           <NavigationMenuItem>
             <div className="flex flex-shrink-0 items-center">
