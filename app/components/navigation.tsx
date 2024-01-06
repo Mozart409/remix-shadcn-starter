@@ -15,6 +15,7 @@ const baseNavigation = [
   { name: "Home", href: "/" },
   /* { name: "Notes", href: "/notes" }, */
   { name: "About Us", href: "/about-us" },
+  { name: "Error", href: "/error" },
 ];
 
 export default function Navbar() {
