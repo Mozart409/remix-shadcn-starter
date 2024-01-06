@@ -1,5 +1,6 @@
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { isRouteErrorResponse, json, MetaFunction, useLoaderData, useRouteError } from "@remix-run/react";
+import { isRouteErrorResponse, json, Link, MetaFunction, useLoaderData, useRouteError } from "@remix-run/react";
+import { XCircle } from "lucide-react";
 import Navigation from "~/components/navigation";
 import { Button } from "~/components/ui/button";
 import { useToast } from "~/components/ui/use-toast";
@@ -11,8 +12,8 @@ export const meta: MetaFunction = () => [
 ];
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const agent = request.headers.get('User-Agent');
-  return json({ agent});
+  const agent = request.headers.get("User-Agent");
+  return json({ agent });
 };
 
 export default function RouteComponent() {
@@ -34,7 +35,7 @@ export default function RouteComponent() {
             <Button
               onClick={() => {
                 toast({
-                  title: "About ws", 
+                  title: "About us",
                   description: "This is a test",
                 });
               }}
@@ -50,8 +51,90 @@ export default function RouteComponent() {
 
 export function ErrorBoundary() {
   const error = useRouteError();
-  if (isRouteErrorResponse(error)) {
-    return <div />;
+
+  if (error instanceof Error) {
+    return (
+      <div className="p-4 bg-red-50 rounded-md">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-red-800">
+              An unexpected error occurred:
+            </h3>
+            <div className="mt-2 text-sm text-red-700">
+              <ul className="pl-5 space-y-1 list-disc">
+                <li>{error.message}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
-  return <div />;
+
+  if (!isRouteErrorResponse(error)) {
+    return (
+      <div className="p-4 bg-red-50 rounded-md">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-red-800">
+              An unexpected error occurred:
+            </h3>
+            <div className="mt-2 text-sm text-red-700">
+              <ul className="pl-5 space-y-1 list-disc">
+                <li>Unknown Error</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error.status === 404) {
+    return (
+      <div className="p-4 bg-red-50 rounded-md">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-red-800">
+              An unexpected error occurred:
+            </h3>
+            <div className="mt-2 text-sm text-red-700">
+              <ul className="pl-5 space-y-1 list-disc">
+                <li>Page not found</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-4 bg-red-50 rounded-md">
+      <div className="flex">
+        <div className="flex-shrink-0">
+          <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
+        </div>
+        <div className="ml-3">
+          <h3 className="text-sm font-medium text-red-800">
+            An unexpected error occurred:
+          </h3>
+          <div className="mt-2 text-sm text-red-700">
+            <ul className="pl-5 space-y-1 list-disc">
+              <li>{error.statusText}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
