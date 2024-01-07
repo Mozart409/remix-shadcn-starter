@@ -42,5 +42,5 @@ Make sure to deploy the output of `remix build`
 
 ### Todo
 
-- [ ] Add a dockerfile
-- [ ] Add a docker-compose file
+- [x] Add a dockerfile
+- [x] Add a docker-compose file
