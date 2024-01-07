@@ -5,6 +5,11 @@
 - [Remix Devtools Docs](https://github.com/Code-Forge-Net/Remix-Dev-Tools)
 - [Remix Vite Migration](https://remix.run/docs/en/main/future/vite#setup-vite)
 
+
+## Live Preview
+
+You can view this starter [here](https://remix-shadcn-starter.fly.dev/)
+
 ## Development
 
 From your terminal:
