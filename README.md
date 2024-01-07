@@ -49,3 +49,5 @@ Make sure to deploy the output of `remix build`
 
 - [x] Add a dockerfile
 - [x] Add a docker-compose file
+- [x] Add live preview with fly.io
+- [ ] Add prometheus metrics
