@@ -70,6 +70,9 @@ devDependencies:
   autoprefixer:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.33)
+  lefthook:
+    specifier: ^1.5.5
+    version: 1.5.5
   remix-development-tools:
     specifier: ^3.7.1
     version: 3.7.1(@remix-run/react@2.4.1)(@types/react-dom@18.2.18)(@types/react@18.2.47)(react-dom@18.2.0)(react@18.2.0)
@@ -4134,6 +4137,85 @@ packages:
   /kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
+    dev: true
+
+  /lefthook-darwin-arm64@1.5.5:
+    resolution: {integrity: sha512-IkEPhY34dsjch1vB/NQXaLd8d9Y9K6iYzgFHq8Bb7tecYQ1FxGddrdGrRESuYgan3HORpcpV9R+JSaY+j0o/sQ==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lefthook-darwin-x64@1.5.5:
+    resolution: {integrity: sha512-lWpfj2QFfkJrI4gwVJIfdQ5e0bDtsptvJPAt61ZY9pOo97fRc7EmnQQqmy821dIVgmKtKKCUIs308272CrqNJw==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lefthook-freebsd-arm64@1.5.5:
+    resolution: {integrity: sha512-E3U+PIdyt67UAPhW8ByXj7FWIRP1746DiMX8nIdSlkw4+zbNKcNKSlPhvexP/R2AuZ4cdXdg6j/MvDOWFxg3YA==}
+    cpu: [arm64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lefthook-freebsd-x64@1.5.5:
+    resolution: {integrity: sha512-WvV8lneJcWKkDzzgz2kwXYjCGUL7A7oYgo4OWixjnwdl5zSNfYbdxOrz+j1PtKSP9kNp1AARDf1sXdMHoA9jfA==}
+    cpu: [x64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lefthook-linux-arm64@1.5.5:
+    resolution: {integrity: sha512-+Mru3ssBbeUDM4zYvn8/791t0YCYGkLJJKtBTwKv65/mDEglDOTOX1uN+d/WQ24761LXyVKnUAFXa+PIyexTzw==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lefthook-linux-x64@1.5.5:
+    resolution: {integrity: sha512-p8Ts8SE1p34Bh4qu8Fx1IOObZnp6JxaV6Y3H2vVfyq8tUj3xYxvSht2P3sJOrkQNvyEEcPQhxfZ761TlLfxSaw==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lefthook-windows-arm64@1.5.5:
+    resolution: {integrity: sha512-ofuBiOIdEdpXJyU4fb9m3rVj93Rmlj/XdyhcjE2SOQAZe3Sso+uFr0hQ2x8UEM7fLRQLuhUuLMYwEWFmg+aTAQ==}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lefthook-windows-x64@1.5.5:
+    resolution: {integrity: sha512-bMq/MDRHeN+IOsw7UgKEdSxQmQ+p5S1mTUqnDxsVsgMFYSuxApelXhNGLs50MRAI/IeZGwBL/4JJCuN1RJFW+w==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lefthook@1.5.5:
+    resolution: {integrity: sha512-bq1GfvldJWwALkOufR5mIZhxxKcNmjzg8Ve1zANMgpXteuF13k1y2FeMeYuvwzzzRk+URcsiVh0dfMPA4/6wjg==}
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      lefthook-darwin-arm64: 1.5.5
+      lefthook-darwin-x64: 1.5.5
+      lefthook-freebsd-arm64: 1.5.5
+      lefthook-freebsd-x64: 1.5.5
+      lefthook-linux-arm64: 1.5.5
+      lefthook-linux-x64: 1.5.5
+      lefthook-windows-arm64: 1.5.5
+      lefthook-windows-x64: 1.5.5
     dev: true
 
   /lilconfig@2.1.0:
