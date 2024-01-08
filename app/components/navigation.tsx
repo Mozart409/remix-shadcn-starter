@@ -25,20 +25,14 @@ export default function Navbar() {
         <NavigationMenuList>
           <NavigationMenuItem>
             <div className="flex flex-shrink-0 items-center">
-              <img
-                className="w-auto h-10 rounded-full"
-                src="/logo.svg"
-                alt="Logo"
-              />
+              <img className="w-auto h-10 rounded-full" src="/logo.svg" alt="Logo" />
             </div>
           </NavigationMenuItem>
 
           {baseNavigation.map((item) => (
             <NavigationMenuItem key={item.name}>
               <Link to={item.href}>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  {item.name}
-                </NavigationMenuLink>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>{item.name}</NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
           ))}

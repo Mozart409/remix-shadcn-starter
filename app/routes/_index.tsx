@@ -3,10 +3,7 @@ import Navigation from "~/components/navigation";
 import { Button } from "~/components/ui/button";
 import { useToast } from "~/components/ui/use-toast";
 export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
+  return [{ title: "New Remix App" }, { name: "description", content: "Welcome to Remix!" }];
 };
 
 export default function Index() {
