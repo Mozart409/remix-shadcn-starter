@@ -31,9 +31,11 @@ export default function Navbar() {
 
           {baseNavigation.map((item) => (
             <NavigationMenuItem key={item.name}>
-              <Link to={item.href}>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>{item.name}</NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link to={item.href}>
+                  {item.name}
+                </Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           ))}
           <NavigationMenuItem>
