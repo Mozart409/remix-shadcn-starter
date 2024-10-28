@@ -17,6 +17,15 @@ services:
       - ./.env
     ports:
       - 3000:3000
+    develop:
+      watch:
+        - action: rebuild
+          path: ./public
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: ./app
+
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
