@@ -1,0 +1,74 @@
+name: 🚀 Build
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  lint:
+    name: ⬣ BiomeJS Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+      
+      - uses: ⬇️ pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          cache-dependency-path: ./package.json
+          node-version: 20
+
+      - name: 📥 Install deps
+        run: pnpm install
+
+      - name: 🔬 Lint
+        run: pnpm run lint
+
+  typecheck:
+    name: ʦ TypeScript
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - uses: ⬇️ pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          cache-dependency-path: ./package.json
+          node-version: 18
+
+      - name: 📥 Install deps
+        run: pnpm install
+
+      - name: build
+        run: pnpm run build
+
+      - name: 🔎 Type check
+        run: pnpm run typecheck --if-present
