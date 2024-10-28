@@ -24,7 +24,7 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
       
-      - uses: ⬇️ pnpm/action-setup@v4
+      - uses: 🪢 pnpm/action-setup@v4
         name: Install pnpm
         with:
           version: 9
@@ -51,7 +51,7 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
-      - uses: ⬇️ pnpm/action-setup@v4
+      - uses: 🪢 pnpm/action-setup@v4
         name: Install pnpm
         with:
           version: 9
