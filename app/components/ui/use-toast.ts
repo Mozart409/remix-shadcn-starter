@@ -166,7 +166,7 @@ function toast({ ...props }: Toast) {
 
 function useToast() {
   const [state, setState] = React.useState<State>(memoryState);
-
+  // biome-ignore lint: 3rd party code
   React.useEffect(() => {
     listeners.push(setState);
     return () => {
