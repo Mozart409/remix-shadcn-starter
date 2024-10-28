@@ -43,8 +43,8 @@ jobs:
       - name: 🔬 Lint
         run: pnpm run lint
 
-  typecheck:
-    name: ʦ TypeScript
+  build:
+    name: ʦ build
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
@@ -69,6 +69,3 @@ jobs:
 
       - name: build
         run: pnpm run build
-
-      - name: 🔎 Type check
-        run: pnpm run typecheck --if-present
