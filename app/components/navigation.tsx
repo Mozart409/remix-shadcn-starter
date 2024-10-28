@@ -7,8 +7,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
   NavigationMenuViewport,
+  navigationMenuTriggerStyle,
 } from "~/components/ui/navigation-menu";
 import { ModeToggle } from "./mode-toggle";
 const baseNavigation = [
@@ -32,9 +32,7 @@ export default function Navbar() {
           {baseNavigation.map((item) => (
             <NavigationMenuItem key={item.name}>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link to={item.href}>
-                  {item.name}
-                </Link>
+                <Link to={item.href}>{item.name}</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
           ))}

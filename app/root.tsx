@@ -6,15 +6,16 @@ import type { LoaderFunctionArgs } from "@remix-run/node";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "@remix-run/react";
 import invariant from "invariant";
 import { Link, XCircle } from "lucide-react";
-import "remix-development-tools/index.css";
 import { Button } from "./components/ui/button";
 import { Toaster } from "./components/ui/toaster";
 import { themeSessionResolver } from "./sessions.server";
 import "./tailwind.css";
 
 invariant(process.env.ENABLE_ANALYTICS, "Missing ENABLE_ANALYTICS env variable");
-invariant(process.env.ANALYTICS_URL, "Missing ANALYTICS_URL env variable");
-invariant(process.env.ANALYTICS_ID, "Missing ANALYTICS_ID env variable");
+if (process.env.ENABLE_ANALYTICS === "1") {
+  invariant(process.env.ANALYTICS_URL, "Missing ANALYTICS_URL env variable");
+  invariant(process.env.ANALYTICS_ID, "Missing ANALYTICS_ID env variable");
+}
 // Return the theme from the session storage using the loader
 export async function loader({ request }: LoaderFunctionArgs) {
   const { getTheme } = await themeSessionResolver(request);
