@@ -1,5 +1,5 @@
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { isRouteErrorResponse, json, Link, MetaFunction, useLoaderData, useRouteError } from "@remix-run/react";
+import { Link, type MetaFunction, isRouteErrorResponse, json, useLoaderData, useRouteError } from "@remix-run/react";
 import { XCircle } from "lucide-react";
 import Navigation from "~/components/navigation";
 import { Button } from "~/components/ui/button";
