@@ -18,7 +18,7 @@
     "postinstall": "if [ \"$NODE_ENV\" = 'development' ]; then lefthook install; fi"
   },
   "dependencies": {
-    "@radix-ui/react-dropdown-menu": "^2.1.2",
+    "@radix-ui/react-dropdown-menu": "^2.1.6",
     "@radix-ui/react-navigation-menu": "^1.2.5",
     "@radix-ui/react-slot": "^1.1.1",
     "@radix-ui/react-toast": "^1.2.5",
