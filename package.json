@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.2",
-    "@radix-ui/react-navigation-menu": "^1.2.5",
+    "@radix-ui/react-navigation-menu": "^1.2.6",
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-toast": "^1.2.6",
     "@remix-run/node": "^2.16.4",
