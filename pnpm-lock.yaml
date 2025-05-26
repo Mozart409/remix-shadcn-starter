@@ -45,8 +45,8 @@ importers:
         specifier: ^2.2.4
         version: 2.2.4
       isbot:
-        specifier: ^5.1.26
-        version: 5.1.26
+        specifier: ^5.1.28
+        version: 5.1.28
       lucide-react:
         specifier: ^0.511.0
         version: 0.511.0(react@18.3.1)
@@ -2856,8 +2856,8 @@ packages:
   isarray@1.0.0:
     resolution: {integrity: sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==}
 
-  isbot@5.1.26:
-    resolution: {integrity: sha512-3wqJEYSIm59dYQjEF7zJ7T42aqaqxbCyJQda5rKCudJykuAnISptCHR/GSGpOnw8UrvU+mGueNLRJS5HXnbsXQ==}
+  isbot@5.1.28:
+    resolution: {integrity: sha512-qrOp4g3xj8YNse4biorv6O5ZShwsJM0trsoda4y7j/Su7ZtTTfVXFzbKkpgcSoDrHS8FcTuUwcU04YimZlZOxw==}
     engines: {node: '>=18'}
 
   isexe@2.0.0:
@@ -7255,7 +7255,7 @@ snapshots:
 
   isarray@1.0.0: {}
 
-  isbot@5.1.26: {}
+  isbot@5.1.28: {}
 
   isexe@2.0.0: {}
 
