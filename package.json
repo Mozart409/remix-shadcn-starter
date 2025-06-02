@@ -23,7 +23,7 @@
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-toast": "^1.2.14",
     "@remix-run/node": "^2.16.7",
-    "@remix-run/react": "^2.16.7",
+    "@remix-run/react": "^2.16.8",
     "@remix-run/serve": "^2.16.4",
     "@types/invariant": "^2.2.37",
     "build": "^0.1.4",
