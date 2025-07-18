@@ -38,4 +38,10 @@ pre-commit:
   commands:
     check:
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
-      run: npx biome check --apply --no-errors-on-unmatched --files-ignore-unknown=true {staged_files} && git update-index --again
+      run: |
+        if command -v biome >/dev/null 2>&1; then
+          biome check --apply --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+        else
+          npx biome check --apply --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+        fi
+        git update-index --again
