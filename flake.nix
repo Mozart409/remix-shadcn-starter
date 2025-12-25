@@ -18,6 +18,8 @@
           pkgs.ni
           pkgs.lefthook
           pkgs.biome
+          pkgs.git
+          pkgs.gh
         ];
         shellHook = ''
           export NODE_ENV=development
@@ -28,4 +30,5 @@
           lefthook install
         '';
       };
-        });
+    });
+}
