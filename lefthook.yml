@@ -14,13 +14,14 @@ pre-commit:
       glob: "package.json"
       run: pnpm install --no-frozen-lockfile
       stage_fixed: true
-
 pre-push:
   parallel: true
   commands:
     lint:
       run: pnpm run lint
+      stage_fixed: true
     typecheck:
       run: pnpm run typecheck
+      stage_fixed: true
     build:
       run: pnpm run build

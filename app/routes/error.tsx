@@ -2,10 +2,7 @@ import { XCircle } from "lucide-react";
 import { isRouteErrorResponse, type MetaFunction, useRouteError } from "react-router";
 import Navigation from "~/components/navigation";
 
-export const meta: MetaFunction = () => [
-  { title: "Error Demo" },
-  { name: "description", content: "Demo error page" },
-];
+export const meta: MetaFunction = () => [{ title: "Error Demo" }, { name: "description", content: "Demo error page" }];
 
 export function loader() {
   throw new Error("This is a demo error to showcase the ErrorBoundary.");
