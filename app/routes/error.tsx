@@ -1,49 +1,15 @@
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { Link, type MetaFunction, isRouteErrorResponse, json, useLoaderData, useRouteError } from "@remix-run/react";
 import { XCircle } from "lucide-react";
+import { isRouteErrorResponse, type MetaFunction, useRouteError } from "react-router";
 import Navigation from "~/components/navigation";
-import { Button } from "~/components/ui/button";
-import { useToast } from "~/components/ui/use-toast";
 
-export const meta: MetaFunction = () => [
-  // your meta here
-  { title: "About Us" },
-  { name: "description", content: "Welcome to our About Us Page!" },
-];
+export const meta: MetaFunction = () => [{ title: "Error Demo" }, { name: "description", content: "Demo error page" }];
 
-export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const agent = request.headers.get("User-Agent");
-  throw new Error("This is an error");
-};
+export function loader() {
+  throw new Error("This is a demo error to showcase the ErrorBoundary.");
+}
 
 export default function RouteComponent() {
-  const data = useLoaderData<typeof loader>();
-  const { toast } = useToast();
-  return (
-    <div className="min-h-full">
-      <Navigation />
-      <div className="py-10">
-        <header className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="">
-            <h1 className="text-4xl font-bold">Error Page</h1>
-          </div>
-        </header>
-        <main>
-          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <Button
-              onClick={() => {
-                toast({
-                  title: "Error Page",
-                });
-              }}
-            >
-              Show Toast
-            </Button>
-          </div>
-        </main>
-      </div>
-    </div>
-  );
+  return null;
 }
 
 export function ErrorBoundary() {

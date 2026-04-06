@@ -1,7 +1,9 @@
 node_modules
+.react-router/
 
 /.cache
 /build
 /public/build
 .env
 .env.production
+/.direnv

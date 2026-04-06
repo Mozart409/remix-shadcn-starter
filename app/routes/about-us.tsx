@@ -1,9 +1,7 @@
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { Link, type MetaFunction, isRouteErrorResponse, json, useLoaderData, useRouteError } from "@remix-run/react";
 import { XCircle } from "lucide-react";
+import type { LoaderFunctionArgs } from "react-router";
+import { isRouteErrorResponse, type MetaFunction, useLoaderData, useRouteError } from "react-router";
 import Navigation from "~/components/navigation";
-import { Button } from "~/components/ui/button";
-import { useToast } from "~/components/ui/use-toast";
 
 export const meta: MetaFunction = () => [
   // your meta here
@@ -13,12 +11,11 @@ export const meta: MetaFunction = () => [
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const agent = request.headers.get("User-Agent");
-  return json({ agent });
+  return { agent };
 };
 
 export default function RouteComponent() {
   const data = useLoaderData<typeof loader>();
-  const { toast } = useToast();
   return (
     <div className="min-h-full">
       <Navigation />
@@ -31,18 +28,7 @@ export default function RouteComponent() {
           </div>
         </header>
         <main>
-          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <Button
-              onClick={() => {
-                toast({
-                  title: "About us",
-                  description: "This is a test",
-                });
-              }}
-            >
-              Show Toast
-            </Button>
-          </div>
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8"></div>
         </main>
       </div>
     </div>

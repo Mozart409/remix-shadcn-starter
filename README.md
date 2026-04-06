@@ -1,9 +1,7 @@
-# Welcome to a Remix / Shadcn UI / Remix Devtools Starter / Vite !
+# React Router v7 / Shadcn UI Starter
 
-- [Remix Docs](https://remix.run/docs)
+- [React Router Docs](https://reactrouter.com/)
 - [Shadcn UI Docs](https://ui.shadcn.com/docs/)
-- [Remix Devtools Docs](https://github.com/Code-Forge-Net/Remix-Dev-Tools)
-- [Remix Vite Migration](https://remix.run/docs/en/main/future/vite#setup-vite)
 
 ## Live Preview
 
@@ -17,7 +15,7 @@ From your terminal:
 pnpm run dev
 ```
 
-This starts your app in development mode, rebuilding assets on file changes. You can open it in your browser at `http://localhost:5173` and in the bottom right corner you'll see a button to the Remix Devtools.
+This starts your app in development mode, rebuilding assets on file changes.
 
 ## Deployment
 
@@ -33,20 +31,7 @@ Then run the app in production mode:
 pnpm start
 ```
 
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
+Make sure to deploy the output of `react-router build`:
 
 - `build/server`
 - `build/client/`
-
-### Todo
-
-- [x] Add a dockerfile
-- [x] Add a docker-compose file
-- [x] Add live preview with fly.io
-- [ ] Add prometheus metrics
