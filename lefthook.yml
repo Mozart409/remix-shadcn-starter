@@ -10,3 +10,7 @@ pre-commit:
         fi
         git update-index --again
       stage_fixed: true
+    lockfile:
+      glob: "package.json"
+      run: pnpm install --no-frozen-lockfile
+      stage_fixed: true
