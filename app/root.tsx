@@ -20,16 +20,22 @@ import { XCircle } from "lucide-react";
 import { themeSessionResolver } from "./sessions.server";
 import "./tailwind.css";
 
-invariant(
-  process.env.ENABLE_ANALYTICS,
-  "Missing ENABLE_ANALYTICS env variable",
-);
-if (process.env.ENABLE_ANALYTICS === "1") {
-  invariant(process.env.ANALYTICS_URL, "Missing ANALYTICS_URL env variable");
-  invariant(process.env.ANALYTICS_ID, "Missing ANALYTICS_ID env variable");
-}
 // Return the theme from the session storage using the loader
 export async function loader({ request }: LoaderFunctionArgs) {
+  invariant(
+    process.env.ENABLE_ANALYTICS,
+    "Missing ENABLE_ANALYTICS env variable",
+  );
+  if (process.env.ENABLE_ANALYTICS === "1") {
+    invariant(
+      process.env.ANALYTICS_URL,
+      "Missing ANALYTICS_URL env variable",
+    );
+    invariant(
+      process.env.ANALYTICS_ID,
+      "Missing ANALYTICS_ID env variable",
+    );
+  }
   const { getTheme } = await themeSessionResolver(request);
   return {
     theme: getTheme(),
