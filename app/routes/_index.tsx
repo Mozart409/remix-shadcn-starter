@@ -1,10 +1,7 @@
 import type { MetaFunction } from "react-router";
 import Navigation from "~/components/navigation";
 export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
+  return [{ title: "New Remix App" }, { name: "description", content: "Welcome to Remix!" }];
 };
 
 export default function Index() {

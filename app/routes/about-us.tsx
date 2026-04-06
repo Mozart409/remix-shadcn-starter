@@ -1,14 +1,7 @@
-import type { LoaderFunctionArgs } from "react-router";
-import {
-  Link,
-  type MetaFunction,
-  isRouteErrorResponse,
-  useLoaderData,
-  useRouteError,
-} from "react-router";
 import { XCircle } from "lucide-react";
+import type { LoaderFunctionArgs } from "react-router";
+import { isRouteErrorResponse, type MetaFunction, useLoaderData, useRouteError } from "react-router";
 import Navigation from "~/components/navigation";
-import { Button } from "~/components/ui/button";
 
 export const meta: MetaFunction = () => [
   // your meta here
@@ -53,9 +46,7 @@ export function ErrorBoundary() {
             <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
           </div>
           <div className="ml-3">
-            <h3 className="text-sm font-medium text-red-800">
-              An unexpected error occurred:
-            </h3>
+            <h3 className="text-sm font-medium text-red-800">An unexpected error occurred:</h3>
             <div className="mt-2 text-sm text-red-700">
               <ul className="pl-5 space-y-1 list-disc">
                 <li>{error.message}</li>
@@ -75,9 +66,7 @@ export function ErrorBoundary() {
             <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
           </div>
           <div className="ml-3">
-            <h3 className="text-sm font-medium text-red-800">
-              An unexpected error occurred:
-            </h3>
+            <h3 className="text-sm font-medium text-red-800">An unexpected error occurred:</h3>
             <div className="mt-2 text-sm text-red-700">
               <ul className="pl-5 space-y-1 list-disc">
                 <li>Unknown Error</li>
@@ -97,9 +86,7 @@ export function ErrorBoundary() {
             <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
           </div>
           <div className="ml-3">
-            <h3 className="text-sm font-medium text-red-800">
-              An unexpected error occurred:
-            </h3>
+            <h3 className="text-sm font-medium text-red-800">An unexpected error occurred:</h3>
             <div className="mt-2 text-sm text-red-700">
               <ul className="pl-5 space-y-1 list-disc">
                 <li>Page not found</li>
@@ -118,9 +105,7 @@ export function ErrorBoundary() {
           <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
         </div>
         <div className="ml-3">
-          <h3 className="text-sm font-medium text-red-800">
-            An unexpected error occurred:
-          </h3>
+          <h3 className="text-sm font-medium text-red-800">An unexpected error occurred:</h3>
           <div className="mt-2 text-sm text-red-700">
             <ul className="pl-5 space-y-1 list-disc">
               <li>{error.statusText}</li>
