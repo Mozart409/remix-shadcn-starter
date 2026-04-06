@@ -3,27 +3,16 @@ import { isRouteErrorResponse, type MetaFunction, useRouteError } from "react-ro
 import Navigation from "~/components/navigation";
 
 export const meta: MetaFunction = () => [
-  // your meta here
-  { title: "About Us" },
-  { name: "description", content: "Welcome to our About Us Page!" },
+  { title: "Error Demo" },
+  { name: "description", content: "Demo error page" },
 ];
 
+export function loader() {
+  throw new Error("This is a demo error to showcase the ErrorBoundary.");
+}
+
 export default function RouteComponent() {
-  return (
-    <div className="min-h-full">
-      <Navigation />
-      <div className="py-10">
-        <header className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="">
-            <h1 className="text-4xl font-bold">Error Page</h1>
-          </div>
-        </header>
-        <main>
-          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8"></div>
-        </main>
-      </div>
-    </div>
-  );
+  return null;
 }
 
 export function ErrorBoundary() {
