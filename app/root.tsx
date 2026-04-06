@@ -1,17 +1,29 @@
-import { isRouteErrorResponse, useRouteError } from "@remix-run/react";
+import { isRouteErrorResponse, useRouteError } from "react-router";
 import clsx from "clsx";
-import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes";
+import {
+  PreventFlashOnWrongTheme,
+  ThemeProvider,
+  useTheme,
+} from "remix-themes";
 
-import type { LoaderFunctionArgs } from "@remix-run/node";
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "@remix-run/react";
+import type { LoaderFunctionArgs } from "react-router";
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useLoaderData,
+} from "react-router";
 import invariant from "invariant";
-import { Link, XCircle } from "lucide-react";
-import { Button } from "./components/ui/button";
-import { Toaster } from "./components/ui/toaster";
+import { XCircle } from "lucide-react";
 import { themeSessionResolver } from "./sessions.server";
 import "./tailwind.css";
 
-invariant(process.env.ENABLE_ANALYTICS, "Missing ENABLE_ANALYTICS env variable");
+invariant(
+  process.env.ENABLE_ANALYTICS,
+  "Missing ENABLE_ANALYTICS env variable",
+);
 if (process.env.ENABLE_ANALYTICS === "1") {
   invariant(process.env.ANALYTICS_URL, "Missing ANALYTICS_URL env variable");
   invariant(process.env.ANALYTICS_ID, "Missing ANALYTICS_ID env variable");
@@ -52,11 +64,14 @@ function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <Toaster />
-        <LiveReload />
 
-        {process.env.NODE_ENV === "production" && process.env.ENABLE_ANALYTICS === "1" ? (
-          <script async src={`${process.env.ANALYTICS_URL}`} data-website-id={`${process.env.ANALYTICS_ID}`} />
+        {process.env.NODE_ENV === "production" &&
+        process.env.ENABLE_ANALYTICS === "1" ? (
+          <script
+            async
+            src={`${process.env.ANALYTICS_URL}`}
+            data-website-id={`${process.env.ANALYTICS_ID}`}
+          />
         ) : null}
       </body>
     </html>
@@ -74,7 +89,9 @@ export function ErrorBoundary() {
             <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
           </div>
           <div className="ml-3">
-            <h3 className="text-sm font-medium text-red-800">An unexpected error occurred:</h3>
+            <h3 className="text-sm font-medium text-red-800">
+              An unexpected error occurred:
+            </h3>
             <div className="mt-2 text-sm text-red-700">
               <ul className="pl-5 space-y-1 list-disc">
                 <li>{error.message}</li>
@@ -94,7 +111,9 @@ export function ErrorBoundary() {
             <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
           </div>
           <div className="ml-3">
-            <h3 className="text-sm font-medium text-red-800">An unexpected error occurred:</h3>
+            <h3 className="text-sm font-medium text-red-800">
+              An unexpected error occurred:
+            </h3>
             <div className="mt-2 text-sm text-red-700">
               <ul className="pl-5 space-y-1 list-disc">
                 <li>Unknown Error</li>
@@ -114,7 +133,9 @@ export function ErrorBoundary() {
             <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
           </div>
           <div className="ml-3">
-            <h3 className="text-sm font-medium text-red-800">An unexpected error occurred:</h3>
+            <h3 className="text-sm font-medium text-red-800">
+              An unexpected error occurred:
+            </h3>
             <div className="mt-2 text-sm text-red-700">
               <ul className="pl-5 space-y-1 list-disc">
                 <li>Page not found</li>
@@ -133,7 +154,9 @@ export function ErrorBoundary() {
           <XCircle className="w-5 h-5 text-red-400" aria-hidden="true" />
         </div>
         <div className="ml-3">
-          <h3 className="text-sm font-medium text-red-800">An unexpected error occurred:</h3>
+          <h3 className="text-sm font-medium text-red-800">
+            An unexpected error occurred:
+          </h3>
           <div className="mt-2 text-sm text-red-700">
             <ul className="pl-5 space-y-1 list-disc">
               <li>{error.statusText}</li>

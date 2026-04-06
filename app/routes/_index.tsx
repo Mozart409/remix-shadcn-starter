@@ -1,13 +1,13 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "react-router";
 import Navigation from "~/components/navigation";
-import { Button } from "~/components/ui/button";
-import { useToast } from "~/components/ui/use-toast";
 export const meta: MetaFunction = () => {
-  return [{ title: "New Remix App" }, { name: "description", content: "Welcome to Remix!" }];
+  return [
+    { title: "New Remix App" },
+    { name: "description", content: "Welcome to Remix!" },
+  ];
 };
 
 export default function Index() {
-  const { toast } = useToast();
   return (
     <div className="min-h-full">
       <Navigation />
@@ -18,18 +18,7 @@ export default function Index() {
           </div>
         </header>
         <main>
-          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <Button
-              onClick={() => {
-                toast({
-                  title: "Hello World",
-                  description: "This is a test",
-                });
-              }}
-            >
-              Show Toast
-            </Button>
-          </div>
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8"></div>
         </main>
       </div>
     </div>
