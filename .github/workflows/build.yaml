@@ -23,19 +23,16 @@ jobs:
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
-      
+
       - name: 🪢 Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
-          run_install: false
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
           cache: pnpm
-          cache-dependency-path: ./package.json
-          node-version: 20
+          cache-dependency-path: ./pnpm-lock.yaml
+          node-version: 22
 
       - name: 📥 Install deps
         run: pnpm install
@@ -43,8 +40,8 @@ jobs:
       - name: 🔬 Lint
         run: pnpm run lint
 
-  build:
-    name: ʦ build
+  typecheck:
+    name: ʦ Typecheck
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
@@ -53,19 +50,40 @@ jobs:
 
       - name: 🪢 Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
-          run_install: false
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
           cache: pnpm
-          cache-dependency-path: ./package.json
-          node-version: 18
+          cache-dependency-path: ./pnpm-lock.yaml
+          node-version: 22
 
       - name: 📥 Install deps
         run: pnpm install
 
-      - name: build
+      - name: 🔍 Typecheck
+        run: pnpm run typecheck
+
+  build:
+    name: 🏗️ Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🪢 Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          cache-dependency-path: ./pnpm-lock.yaml
+          node-version: 22
+
+      - name: 📥 Install deps
+        run: pnpm install
+
+      - name: 🏗️ Build
         run: pnpm run build
