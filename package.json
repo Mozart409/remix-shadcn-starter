@@ -36,7 +36,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.10",
+    "@biomejs/biome": "2.4.11",
     "@react-router/dev": "^7.6.1",
     "@react-router/fs-routes": "^7.6.1",
     "@tailwindcss/vite": "^4.2.2",
