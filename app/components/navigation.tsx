@@ -13,6 +13,7 @@ const baseNavigation = [
   /* { name: "Notes", href: "/notes" }, */
   { name: "About Us", href: "/about-us" },
   { name: "Error", href: "/error" },
+  { name: "GitHub", href: "https://github.com/Mozart409/remix-shadcn-starter" },
 ];
 
 export default function Navbar() {
