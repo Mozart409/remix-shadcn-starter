@@ -4,9 +4,9 @@ pre-commit:
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       run: |
         if command -v biome >/dev/null 2>&1; then
-          biome check --apply --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+          biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
         else
-          npx biome check --apply --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+          npx biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
         fi
         git update-index --again
       stage_fixed: true
