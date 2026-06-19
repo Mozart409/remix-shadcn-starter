@@ -9,6 +9,9 @@ FROM node:${NODE_VERSION}-alpine AS base
 # Set working directory for all build stages.
 WORKDIR /usr/src/app
 
+# Update system packages to fix OS-level vulnerabilities.
+RUN apk update && apk upgrade
+
 # Install pnpm. The version is controlled by packageManager in package.json.
 RUN --mount=type=cache,target=/root/.npm \
     npm install -g pnpm
@@ -47,7 +50,18 @@ RUN pnpm run build
 ################################################################################
 # Create a new stage to run the application with minimal runtime dependencies
 # where the necessary files are copied from the build stage.
-FROM base AS final
+# Use a fresh node image to avoid bundling npm/pnpm and their vulnerable deps.
+FROM node:${NODE_VERSION}-alpine AS final
+
+# Set working directory.
+WORKDIR /usr/src/app
+
+# Update system packages to fix OS-level vulnerabilities.
+RUN apk update && apk upgrade
+
+# Remove npm and corepack to eliminate bundled vulnerable dependencies.
+# The runtime only needs Node.js and the application dependencies.
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx /usr/local/lib/node_modules/corepack /usr/local/bin/corepack
 
 # Use production node environment by default.
 ENV NODE_ENV=production
@@ -67,5 +81,5 @@ COPY --from=build /usr/src/app/build/server ./build/server
 # Expose the port that the application listens on.
 EXPOSE 3000
 
-# Run the application.
-CMD pnpm start
+# Run the application directly with node to avoid needing npm/pnpm in the final image.
+CMD ["node", "./node_modules/@react-router/serve/bin.cjs", "./build/server/index.js"]
