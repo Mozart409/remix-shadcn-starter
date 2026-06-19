@@ -12,7 +12,8 @@ WORKDIR /usr/src/app
 
 # Install pnpm.
 RUN --mount=type=cache,target=/root/.npm \
-    npm install -g pnpm@${PNPM_VERSION}
+    npm install -g pnpm@${PNPM_VERSION} && \
+    pnpm config set ignore-build-scripts false
 
 ################################################################################
 # Create a stage for installing production dependencies.
