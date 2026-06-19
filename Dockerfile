@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1
 
 ARG NODE_VERSION=24.15.0
-ARG PNPM_VERSION=11.5.3
 
 ################################################################################
 # Use node image for base image for all stages.
@@ -10,14 +9,16 @@ FROM node:${NODE_VERSION}-alpine AS base
 # Set working directory for all build stages.
 WORKDIR /usr/src/app
 
-# Install pnpm.
+# Install pnpm. The version is controlled by packageManager in package.json.
 RUN --mount=type=cache,target=/root/.npm \
-    npm install -g pnpm@${PNPM_VERSION} && \
-    pnpm config set ignore-build-scripts false
+    npm install -g pnpm
 
 ################################################################################
 # Create a stage for installing production dependencies.
 FROM base AS deps
+
+# pnpm-workspace.yaml must be copied (not bind-mounted) because pnpm may rewrite it.
+COPY pnpm-workspace.yaml .
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.local/share/pnpm/store to speed up subsequent builds.
