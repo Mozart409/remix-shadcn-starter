@@ -21,6 +21,7 @@
           nodejs_24
           pnpm
           docker
+          docker-compose
           ni
           lefthook
           biome
@@ -42,6 +43,7 @@
           if command -v docker >/dev/null 2>&1; then
             if docker info >/dev/null 2>&1; then
               echo "Docker:  $(docker --version)"
+              echo "Compose: $(docker compose version)"
             else
               echo "Docker CLI installed, but the daemon is not running."
             fi
