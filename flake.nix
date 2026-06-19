@@ -22,6 +22,7 @@
           pnpm
           podman
           podman-compose
+          trivy
           ni
           lefthook
           biome
@@ -41,6 +42,10 @@
 
           if command -v podman >/dev/null 2>&1; then
             echo "Podman:  $(podman --version)"
+          fi
+
+          if command -v trivy >/dev/null 2>&1; then
+            echo "Trivy:   $(trivy --version | head -1)"
           fi
 
           if command -v lefthook >/dev/null 2>&1; then

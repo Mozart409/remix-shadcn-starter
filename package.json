@@ -9,6 +9,7 @@
     "dev": "react-router dev",
     "fmt": "biome format . --write ./app",
     "image": "podman build -t remix-shadcn-starter:latest .",
+    "scan": "pnpm run image && trivy image remix-shadcn-starter:latest",
     "lint": "biome check --write ./app",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
