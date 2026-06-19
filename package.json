@@ -8,13 +8,13 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "fmt": "biome format . --write ./app",
-    "image": "docker build -t remix-shadcn-starter:latest .",
+    "image": "podman build -t remix-shadcn-starter:latest .",
     "lint": "biome check --write ./app",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
-    "up": "docker compose up -d --build --remove-orphans",
-    "watch": "docker compose watch",
-    "down": "docker compose down"
+    "up": "podman-compose up -d --build --remove-orphans",
+    "watch": "podman-compose watch",
+    "down": "podman-compose down"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.18",

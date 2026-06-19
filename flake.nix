@@ -20,8 +20,8 @@
         packages = with pkgs; [
           nodejs_24
           pnpm
-          docker
-          docker-compose
+          podman
+          podman-compose
           ni
           lefthook
           biome
@@ -39,14 +39,8 @@
           echo "Node:    $(node --version)"
           echo "PNPM:    $(pnpm --version)"
 
-          # Docker check (daemon may not be running on NixOS)
-          if command -v docker >/dev/null 2>&1; then
-            if docker info >/dev/null 2>&1; then
-              echo "Docker:  $(docker --version)"
-              echo "Compose: $(docker compose version)"
-            else
-              echo "Docker CLI installed, but the daemon is not running."
-            fi
+          if command -v podman >/dev/null 2>&1; then
+            echo "Podman:  $(podman --version)"
           fi
 
           if command -v lefthook >/dev/null 2>&1; then

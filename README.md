@@ -26,7 +26,7 @@ You can view this starter [here](https://remix-shadcn-starter.fly.dev/)
 
 - [Node.js](https://nodejs.org/) v24+ (or use the Nix flake)
 - [pnpm](https://pnpm.io/) v11.5.3
-- [Docker](https://docker.com/) (optional)
+- [Podman](https://podman.io/) (optional)
 
 ### Using Nix (Recommended)
 
@@ -69,15 +69,15 @@ Make sure to deploy the output of `react-router build`:
 - `build/server/`
 - `build/client/`
 
-## Docker
+## Podman
 
-Build and run with Docker:
+Build and run with Podman:
 
 ```sh
 # Build the image
 pnpm run image
 
-# Or with Docker Compose
+# Or with Podman Compose
 pnpm run up
 ```
 
@@ -95,10 +95,10 @@ The Dockerfile uses:
 | `pnpm run lint` | Run Biome linter |
 | `pnpm run fmt` | Run Biome formatter |
 | `pnpm run typecheck` | Run TypeScript type check |
-| `pnpm run image` | Build Docker image |
-| `pnpm run up` | Start Docker Compose stack |
-| `pnpm run down` | Stop Docker Compose stack |
-| `pnpm run watch` | Docker Compose watch mode |
+| `pnpm run image` | Build Podman image |
+| `pnpm run up` | Start Podman Compose stack |
+| `pnpm run down` | Stop Podman Compose stack |
+| `pnpm run watch` | Podman Compose watch mode |
 
 ## License
 
