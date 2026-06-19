@@ -33,42 +33,35 @@
         shellHook = ''
           export NODE_ENV=development
 
-          # Colors for prettier output
-          GREEN='\033[0;32m'
-          YELLOW='\033[1;33m'
-          CYAN='\033[0;36m'
-          NC='\033[0m'
-
-          echo "''${GREEN}=== remix-shadcn-starter dev shell ===''${NC}"
+          echo "=== remix-shadcn-starter dev shell ==="
           echo ""
-
-          echo "''${CYAN}Node:''${NC}    $(node --version)"
-          echo "''${CYAN}PNPM:''${NC}    $(pnpm --version)"
+          echo "Node:    $(node --version)"
+          echo "PNPM:    $(pnpm --version)"
 
           # Docker check (daemon may not be running on NixOS)
           if command -v docker >/dev/null 2>&1; then
             if docker info >/dev/null 2>&1; then
-              echo "''${CYAN}Docker:''${NC}  $(docker --version)"
+              echo "Docker:  $(docker --version)"
             else
-              echo "''${YELLOW}Docker CLI installed, but the daemon is not running.''${NC}"
+              echo "Docker CLI installed, but the daemon is not running."
             fi
           fi
 
           if command -v lefthook >/dev/null 2>&1; then
-            echo "''${CYAN}Lefthook:''${NC} $(lefthook version)"
+            echo "Lefthook: $(lefthook version)"
           fi
 
           echo ""
 
           # Bootstrap .env from template if missing
           if [[ ! -f .env && -f .env.example ]]; then
-            echo "''${YELLOW}Creating .env from .env.example...''${NC}"
+            echo "Creating .env from .env.example..."
             cp .env.example .env
           fi
 
           # Install dependencies if node_modules is missing
           if [[ ! -d node_modules ]]; then
-            echo "''${YELLOW}Installing dependencies with pnpm...''${NC}"
+            echo "Installing dependencies with pnpm..."
             pnpm install
           fi
 
