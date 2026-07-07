@@ -1,5 +1,7 @@
 pre-commit:
   commands:
+    typecheck:
+      run: pnpm run typecheck
     keep-sorted:
       glob: "*.{nix,js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,md}"
       run: |
@@ -28,9 +30,6 @@ pre-push:
   commands:
     lint:
       run: pnpm run lint
-      stage_fixed: true
-    typecheck:
-      run: pnpm run typecheck
       stage_fixed: true
     build:
       run: pnpm run build
