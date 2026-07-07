@@ -2,7 +2,7 @@ import { PassThrough } from "node:stream";
 import { createReadableStreamFromReadable } from "@react-router/node";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
-import type { AppLoadContext, EntryContext } from "react-router";
+import type { EntryContext } from "react-router";
 import { ServerRouter } from "react-router";
 
 const ABORT_DELAY = 5_000;
@@ -12,7 +12,6 @@ export default function handleRequest(
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
-  _loadContext: AppLoadContext,
 ) {
   return isbot(request.headers.get("user-agent"))
     ? handleBotRequest(request, responseStatusCode, responseHeaders, remixContext)
