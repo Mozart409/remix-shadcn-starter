@@ -18,18 +18,21 @@
 
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
+          # keep-sorted start
+          biome
+          cocogitto
+          gh
+          git
+          keep-sorted
+          lefthook
+          ni
           nodejs_24
+          opencode
           pnpm
           podman
           podman-compose
           trivy
-          ni
-          lefthook
-          biome
-          git
-          cocogitto
-          opencode
-          gh
+          # keep-sorted end
         ];
 
         shellHook = ''

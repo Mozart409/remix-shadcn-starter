@@ -1,5 +1,14 @@
 pre-commit:
   commands:
+    keep-sorted:
+      glob: "*.{nix,js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,yml,yaml,md}"
+      run: |
+        if command -v keep-sorted >/dev/null 2>&1; then
+          keep-sorted {staged_files}
+        else
+          echo "keep-sorted not found, skipping..."
+        fi
+      stage_fixed: true
     check:
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       run: |
